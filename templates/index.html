@@ -1,0 +1,30 @@
+<html>
+<head>
+
+<title> Servo Socket Server or S^3 :)</title>
+</head>
+<body>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src="{{ static_url('javascript/tornado_servo.js') }}" type="application/javascript"></script>
+<div>Welcome my servo control server. As the site builds there will be more options. Right know one servo, one angle</div><br>
+
+<form class="my_form">
+<div>Enter an angle(0-180):</div>
+<div> <input type="text" name="angle" class="angle"></div>
+</form>
+
+<div>
+      <label for="host">host:</label>
+      <input type="text" id="host" value="localhost" style="background:#ff0000;"/><br />
+      <label for="port">port:</label>
+      <input type="text" id="port" value="8888" style="background:#ff0000;"/><br />
+      <label for="uri">uri:</label>
+      <input type="text" id="uri" value="/ws" style="background:#ff0000;"/><br />
+      <input type="submit" id="open" value="open" />
+    </div>
+
+
+<div class="ws_response"></div>
+
+</body>
+</html>
