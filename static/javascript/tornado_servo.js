@@ -1,7 +1,6 @@
 $(document).ready(function(){
 	var ws;
 	console.log("ready");
-
 	$("#open").click(function(evt) {
 		evt.preventDefault();
 
@@ -11,9 +10,12 @@ $(document).ready(function(){
 
 		ws = new WebSocket("ws://" + host + ":" + port + uri);
 
-		ws.onmessage = function(evt) {alert("message received: " + evt.data)};
+		$(".angle").change(function(){
+			var angle = $("input.angle").val();
+			ws.send(angle);
+		});
 
-		ws.onclose = function(evt) { alert("Connection closed"); };
+//		ws.onclose = function(evt) { alert("Connection closed"); };
 
 		ws.onopen = function(evt) { 
 			$("#host").css("background", "#00ff00"); 
@@ -22,5 +24,7 @@ $(document).ready(function(){
 			console.log("openned");
 		};
 	});
+
+
 
 });
