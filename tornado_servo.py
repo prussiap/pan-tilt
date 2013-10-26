@@ -4,7 +4,7 @@ import tornado.options
 import tornado.web
 import tornado.websocket
 import os
-
+import Servo_Example
 from tornado.options import define, options
 
 define("port", default=8888, help="run on the given port", type=int)
@@ -19,6 +19,7 @@ class WSHandler(tornado.websocket.WebSocketHandler):
         self.write_message("Hello World")
 
     def on_message(self, message):
+        setPulseDegree(14, 60, int(message))
         print 'message received %s' % message
 
     def on_close(self):
