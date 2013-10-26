@@ -1,7 +1,7 @@
 $(document).ready(function(){
 	var ws;
 
-	ws = new WebSocket("ws://localhost:8888/ws");
+	ws = new WebSocket("ws://10.0.1.17:8888/ws");
 
 	$(function() {
 	   $( "#vertical-slider" ).slider({
@@ -11,8 +11,9 @@ $(document).ready(function(){
 	     max: 180,
 	     step: 15,
 	     slide: function( event, ui ) {
-	       $( "input.vertical-angle" ).val( "vertical-" + ui.value );
-			ws.send(ui.value);
+	       $( "input.vertical-angle" ).val( ui.value );
+		  ws.send(ui.value);
+		  console.log(ui.value);
 	     }
 	   });
 	
@@ -27,7 +28,7 @@ $(document).ready(function(){
 	     step: 15,
 	     slide: function( event, ui ) {
 	       $( "input.horiz-angle" ).val( "horiz-" + ui.value );
-			ws.send(ui.value);
+		  ws.send(ui.value);
 	     }
 	   });
 	});
